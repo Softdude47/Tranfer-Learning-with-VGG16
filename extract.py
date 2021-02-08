@@ -1,5 +1,4 @@
 print("[INFO]: loading Libraries")
-from keras.preprocessing.image import ImageDataGenerator
 from keras.applications import VGG16
 from sklearn.preprocessing import LabelEncoder
 from imutils.paths import list_images
