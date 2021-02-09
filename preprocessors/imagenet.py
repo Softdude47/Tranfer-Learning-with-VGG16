@@ -1,4 +1,4 @@
-from keras.applications import imagenet_utils
+from tensorflow.keras.applications import imagenet_utils
 
 class Imagenet:
     def __init__(self) -> None:

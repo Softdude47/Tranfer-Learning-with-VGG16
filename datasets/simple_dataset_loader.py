@@ -1,6 +1,4 @@
-
-
-from keras.preprocessing.image import load_img
+from tensorflow.keras.preprocessing.image import load_img
 
 
 class Simple_Dataset_Loader:
