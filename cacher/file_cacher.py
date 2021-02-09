@@ -54,7 +54,7 @@ class File_Database:
         custom_type = h5py.special_dtype(vlen=str)
         
         # create dataset in the database for the string labels
-        label_store = self.db.create_dataset(name="class_labels", shape=(len(class_labels),), dtype=custom_type)
+        label_store = self.db.create_dataset(name="class_names", shape=(len(class_labels),), dtype=custom_type)
         label_store[:] = class_labels
         
     def close(self)-> None:
