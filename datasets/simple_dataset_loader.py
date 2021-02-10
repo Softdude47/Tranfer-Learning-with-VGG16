@@ -24,6 +24,7 @@ class Simple_Dataset_Loader:
                 image = preprocessor.preprocess(image)
                 
             # append the preprocess image to the list
+            image = expand_dims(image, axis=0)
             loaded_img.append(image)
         
         # get the image labels if the "include_labels" parameter is set to true
@@ -34,5 +35,4 @@ class Simple_Dataset_Loader:
     
     def load_image(self, image, target_size=None, grayscale=False, interpolation="nearest"):
         loaded_img = load_img(image, grayscale=grayscale, target_size=target_size, interpolation=interpolation)
-        loaded_img = expand_dims(loaded_img)
         return loaded_img
