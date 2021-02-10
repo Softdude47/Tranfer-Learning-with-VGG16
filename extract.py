@@ -36,7 +36,7 @@ dimension.extend(target_size)
 
 print("[INFO]: initializing Key functions")
 # initialize the feature extractor(VGG16) model
-feature_extractor = VGG16(include_top=False, weights="imagenets")
+feature_extractor = VGG16(include_top=False, weights="imagenet")
 
 # initialize and create list of preprocessors
 IAp = Image_to_Array()
