@@ -44,5 +44,5 @@ model.fit(features[ : index], labels[ : index])
 print("[INFO]: predicting")
 predictions = model.predict(features[index : ])
 
-report = classification_report(labels[index : ], predictions, target_class=class_name)
+report = classification_report(labels[index : ], predictions, target_names=class_name)
 print(report)
