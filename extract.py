@@ -48,7 +48,7 @@ sdl = Simple_Dataset_Loader(preprocessors=preprocessors)
 
 # initialize database
 print("[INFO]: creating Database")
-db = File_Database(output_path=output_path, buffSize=buffer_size, dimension=dimension)
+db = File_Database(output_path=output_path, buffSize=buffer_size, dimension=(dimension[0], 512 * 7 * 7))
 
 # extract image labels(from image paths) and fit it into encoder
 class_names = [i.split(separator)[-2] for i in image_paths]
@@ -69,10 +69,12 @@ for i in range(0, dimension[0], bs):
     batchLabels = le.transform(batchLabels)
     batchImages = np.vstack(batchImages)
     
-    # extract feautres
+    # extract and reshape feautres for storage
     batchFeatures = feature_extractor.predict(batchImages)
+    batchFeatures = batchFeatures.reshape(batchFeatures[0], 517 * 7 * 7)
     
     # adds extracted features and encodd labels to database
+    
     db.add(batchFeatures, batchLabels)
     if show_info:
         print(f"[INFO]: process {i + bs}/{dimension[0]}")
