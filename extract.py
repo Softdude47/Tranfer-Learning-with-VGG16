@@ -75,7 +75,7 @@ for i in range(0, dimension[0], bs):
     # adds extracted features and encodd labels to database
     db.add(batchFeatures, batchLabels)
     if show_info:
-        print(f"[INFO]: process {i}/{dimension}")
+        print(f"[INFO]: process {i + bs}/{dimension[0]}")
 
 # close database
 db.close()
