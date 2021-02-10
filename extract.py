@@ -22,12 +22,12 @@ ap.add_argument("--batch_size", "-bs", help="batch size", type=int, default=32)
 ap.add_argument("--buffer_size", "-bf", help="buffer size", type=int, default=1000)
 args = vars(ap.parse_args())
 
-bs = args["bs"]
-buffer_size = args["bf"]
-input_path = args["ip"]
-output_path = args["op"]
-target_size = args["dim"]
-show_info = args["show"]
+bs = args["batch_size"]
+buffer_size = args["buffer_size"]
+input_path = args["input_path"]
+output_path = args["output_path"]
+target_size = args["image_dimension"]
+show_info = args["show_info"]
 
 # setup image dimension
 image_paths = list(list_images(input_path))
