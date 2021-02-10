@@ -32,6 +32,6 @@ class Simple_Dataset_Loader:
             return (loaded_img, image_labels)
         return loaded_img
     
-    def load_img(self, image, target_size=None, grayscale=False, interpolation="nearest"):
+    def load_image(self, image, target_size=None, grayscale=False, interpolation="nearest"):
         loaded_img = load_img(image, grayscale=grayscale, target_size=target_size, interpolation=interpolation)
         return loaded_img
