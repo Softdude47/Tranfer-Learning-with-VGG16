@@ -11,6 +11,7 @@ from preprocessors.imagenet import Imagenet
 from cacher.file_cacher import File_Database
 
 import argparse
+import numpy as np
 
 # commandline parameters
 ap = argparse.ArgumentParser()
@@ -31,6 +32,7 @@ show_info = args["show_info"]
 
 # setup image dimension
 image_paths = list(list_images(input_path))
+shuffle(image_paths)
 dimension = [len(image_paths),]
 dimension.extend(target_size)
 
@@ -62,12 +64,16 @@ for i in range(0, dimension[0], bs):
     batchPath = image_paths[i : i + bs]
     batchImages, batchLabels = sdl.preprocess(batchPath, target_size=target_size, include_labels=True)
     
-    # encode label and extract feautres
+    
+    # encode label and vertically stacks the images
     batchLabels = le.transform(batchLabels)
-    batchImages = feature_extractor.predict(batchImages)
+    batchImages = np.vstack(batchImages)
+    
+    # extract feautres
+    batchFeatures = feature_extractor.predict(batchImages)
     
     # adds extracted features and encodd labels to database
-    db.add(batchImages, batchLabels)
+    db.add(batchFeatures, batchLabels)
     if show_info:
         print(f"[INFO]: process {i}/{dimension}")
 
