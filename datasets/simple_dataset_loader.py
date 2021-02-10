@@ -1,5 +1,5 @@
 from tensorflow.keras.preprocessing.image import load_img
-
+from numpy import expand_dims
 
 class Simple_Dataset_Loader:
     def __init__(self, preprocessors=None):
@@ -34,4 +34,5 @@ class Simple_Dataset_Loader:
     
     def load_image(self, image, target_size=None, grayscale=False, interpolation="nearest"):
         loaded_img = load_img(image, grayscale=grayscale, target_size=target_size, interpolation=interpolation)
+        loaded_img = expand_dims(loaded_img)
         return loaded_img
