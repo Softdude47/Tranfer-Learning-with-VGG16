@@ -71,7 +71,7 @@ for i in range(0, dimension[0], bs):
     
     # extract and reshape feautres for storage
     batchFeatures = feature_extractor.predict(batchImages)
-    batchFeatures = batchFeatures.reshape(batchFeatures[0], 517 * 7 * 7)
+    batchFeatures = batchFeatures.reshape(batchFeatures[0], 512 * 7 * 7)
     
     # adds extracted features and encodd labels to database
     
