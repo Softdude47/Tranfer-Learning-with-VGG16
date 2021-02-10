@@ -23,7 +23,7 @@ train_size = args["training_size"]
 
 # database
 print("[INFO]: opening Database")
-db = h5py.File(name=db_path, mdoe="r")
+db = h5py.File(name=db_path, mode="r")
 features = db["features"]
 labels = db["labels"]
 class_name = db["class_names"]
