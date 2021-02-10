@@ -60,7 +60,7 @@ print("[INFO]: extracting feature")
 for i in range(0, dimension[0], bs):
     # load images and extract their labels
     batchPath = image_paths[i : i + bs]
-    batchImages, batchLabels = sdl.preprocess(batchPath, target_size=target_size, include_label=True)
+    batchImages, batchLabels = sdl.preprocess(batchPath, target_size=target_size, include_labels=True)
     
     # encode label and extract feautres
     batchLabels = le.transform(batchLabels)
